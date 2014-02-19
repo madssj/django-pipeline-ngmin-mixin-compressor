@@ -11,5 +11,4 @@ setup(
     author_email='mads@sulau.dk',
     url='https://github.com/madssj/django-pipeline-ngmin-mixin-compressor',
     packages=['pipeline_ngmin'],
-    long_description=open('README.md', 'rt').read(),
 )
