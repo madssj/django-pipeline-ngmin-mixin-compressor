@@ -16,9 +16,18 @@ class NgminMixIn(object):
         if 'angular' not in js:
             return super(NgminMixIn, self).compress_js(js)
 
+        try:
+            binary = settings.NGMIN_BINARY
+        except KeyError:
+            binary = 'ngmin'
+
+        try:
+            args = settings.NGMIN_ARGUMENTS
+        except KeyError:
+            args = tuple()
+
         command = (
-            getattr(settings, 'NGMIN_BINARY', 'ngmin'),
-            getattr(settings, 'NGMIN_ARGUMENTS', ''),
+            binary, args
         )
 
         js = self.execute_command(command, js)
